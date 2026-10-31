@@ -1,0 +1,11 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "awesome: syntax check",
+            "type": "shell",
+            "command": "awesome -k ${workspaceFolder}/rc.lua",
+            "group": { "kind": "build", "isDefault": true }
+        }
+    ]
+}

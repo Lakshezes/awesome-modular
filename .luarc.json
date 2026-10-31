@@ -1,0 +1,6 @@
+{
+    "runtime.version": "LuaJIT",
+    "diagnostics.globals": ["awesome", "client", "root", "screen",
+        "globalkeys"],
+    "workspace.library": ["/home/lakshezes/.local/share/awesome-lua-language-server"]
+}
