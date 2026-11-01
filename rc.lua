@@ -5,6 +5,9 @@ local awful = require("awful") -- windowx, tage, keys
 local wibox = require("wibox") -- widgent containers
 local beautiful = require("beautiful") -- theme engine
 
+require("daemons")
+local cpu_widget = require("widgets.cpu")
+
 
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
@@ -47,13 +50,8 @@ awful.screen.connect_for_each_screen(function(s)
     -- align.horizontal = [ left | center | right ]
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
-        {                                      -- left
-            widget = wibox.widget.textbox,
-            text  = "  hello, awesome",        -- <- you'll edit this in Step 7
-        },
-        {                                      -- middle (empty)
-            widget = wibox.widget.textbox,
-        },
+        cpu_widget,
+        {widget = wibox.widget.textbox}, -- placeholder
         wibox.widget.textclock(),              -- right: a live clock
     }
 end)
