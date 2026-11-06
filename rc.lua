@@ -7,6 +7,7 @@ local beautiful = require("beautiful") -- theme engine
 
 require("daemons")
 local cpu_widget = require("widgets.cpu")
+local ram_widget = require("widgets.ram")
 
 
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
@@ -50,7 +51,11 @@ awful.screen.connect_for_each_screen(function(s)
     -- align.horizontal = [ left | center | right ]
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
-        cpu_widget,
+        {
+            layout = wibox.layout.fixed.horizontal,
+            cpu_widget,
+            ram_widget,
+        },
         {widget = wibox.widget.textbox}, -- placeholder
         wibox.widget.textclock(),              -- right: a live clock
     }

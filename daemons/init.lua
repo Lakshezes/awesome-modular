@@ -1,3 +1,4 @@
 return{
-    cpu = require("daemons.cpu")
+    cpu = require("daemons.cpu"),
+    ram = require("daemons.ram"),
 }
