@@ -8,6 +8,7 @@ local beautiful = require("beautiful") -- theme engine
 require("daemons")
 local cpu_widget = require("widgets.cpu")
 local ram_widget = require("widgets.ram")
+local battery_widget = require("widgets.battery")
 
 
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
@@ -55,8 +56,10 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             cpu_widget,
             ram_widget,
+            battery_widget,
+            
         },
         {widget = wibox.widget.textbox}, -- placeholder
-        wibox.widget.textclock(),              -- right: a live clock
+        wibox.widget.textclock(),        -- right: a live clock
     }
 end)
