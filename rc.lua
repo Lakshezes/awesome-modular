@@ -9,6 +9,8 @@ require("daemons")
 local cpu_widget = require("widgets.cpu")
 local ram_widget = require("widgets.ram")
 local battery_widget = require("widgets.battery")
+local network_widget = require("widgets.network")
+local wifi_widget = require("widgets.wifi")
 
 
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
@@ -57,6 +59,8 @@ awful.screen.connect_for_each_screen(function(s)
             cpu_widget,
             ram_widget,
             battery_widget,
+            network_widget,
+            wifi_widget,
             
         },
         {widget = wibox.widget.textbox}, -- placeholder
